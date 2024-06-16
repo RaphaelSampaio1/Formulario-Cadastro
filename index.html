@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Formulário de Cadastro</title>
+<style>
+body {
+    background: linear-gradient(to right, navy, lightblue); /* Gradiente de fundo */
+    font-family: Arial, sans-serif; /* Tipo de fonte */
+}
+
+form {
+    background: white; /* Fundo do formulário */
+    padding: 20px; /* Espaçamento interno */
+    margin: 50px auto; /* Centralizar o formulário */
+    width: 300px; /* Largura do formulário */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+input[type=text], input[type=number], input[type=tel], input[type=email] {
+    width: calc(100% - 22px); /* Largura dos campos de texto */
+    padding: 10px; /* Espaçamento interno dos campos de texto */
+    margin-bottom: 10px; /* Espaçamento entre os campos */
+    border: 1px solid #ddd; /* Borda dos campos */
+    border-radius: 5px; /* Bordas arredondadas dos campos */
+}
+
+input[type=submit] {
+    width: 100%; /* Largura do botão enviar */
+    padding: 10px; /* Espaçamento interno do botão enviar */
+    background-color: navy; /* Cor de fundo do botão enviar */
+    color: white; /* Cor do texto do botão enviar */
+    border: none; /* Sem borda no botão enviar */
+    border-radius: 5px; /* Bordas arredondadas no botão enviar */
+}
+
+input[type=submit]:hover {
+    background-color: darkblue; /* Cor de fundo do botão ao passar o mouse */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: navy;
+    color: white;
+}
+</style>
+<script>
+function atualizarLista() {
+    var tabela = document.getElementById('tabela-cadastrados').getElementsByTagName('tbody')[0];
+    var nome = document.getElementById('nome').value;
+    var sobrenome = document.getElementById('sobrenome').value;
+    var idade = document.getElementById('idade').value;
+    var cpf = document.getElementById('cpf').value;
+    var telefone = document.getElementById('telefone').value;
+    var email = document.getElementById('email').value;
+    
+    var linha = tabela.insertRow();
+    linha.insertCell(0).innerHTML = nome;
+    linha.insertCell(1).innerHTML = sobrenome;
+    linha.insertCell(2).innerHTML = idade;
+    linha.insertCell(3).innerHTML = cpf;
+    linha.insertCell(4).innerHTML = telefone;
+    linha.insertCell(5).innerHTML = email;
+}
+</script>
+</head>
+<body>
+
+<form onsubmit="atualizarLista(); return false;">
+  <label for="nome">Nome:</label><br>
+  <input type="text" id="nome" name="nome"><br>
+  <label for="sobrenome">Sobrenome:</label><br>
+  <input type="text" id="sobrenome" name="sobrenome"><br>
+  <label for="idade">Idade:</label><br>
+  <input type="number" id="idade" name="idade" min="0"><br>
+  <label for="cpf">CPF:</label><br>
+  <input type="text" id="cpf" name="cpf"><br>
+  <label for="telefone">Telefone:</label><br>
+  <input type="tel" id="telefone" name="telefone"><br>
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email"><br>
+  <input type="submit" value="Cadastrar">
+</form>
+
+<table id="tabela-cadastrados">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Idade</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- As linhas de dados serão inseridas aqui -->
+  </tbody>
+</table>
+
+</body>
+</html>
